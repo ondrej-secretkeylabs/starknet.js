@@ -1,6 +1,6 @@
 import { LibraryError } from './errors';
 
-export default (typeof fetch === 'function' && fetch) ||
+export default (typeof fetch === 'function' && window.fetch.bind(window)) ||
   // throw with instructions when no fetch is detected
   ((() => {
     throw new LibraryError(
